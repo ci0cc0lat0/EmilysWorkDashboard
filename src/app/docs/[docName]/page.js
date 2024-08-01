@@ -1,6 +1,7 @@
 import React from 'react'
 import { notFound } from 'next/navigation'
 import Embed from '@/app/components/Embed'
+import Note from '@/app/components/Note'
 
 /**
  * Gets all titles for dynamic routes
@@ -54,17 +55,20 @@ export default async function docpage({ params }) {
     notFound();
   }
   
-  let data = await get_data(docName)
-  data = get_attributes(data)
+  let init_data = await get_data(docName)
+  let data = get_attributes(init_data)
   let embed = parse_for_embed(data.docx_embed)
 
   return (
     <div>
         <a href="/docs">Link back</a>
-        <h3>This is page: {decodeURI(params.docName)}</h3>
-        <p>data: {data.docx_embed}</p>
-        <p>embed: {embed}</p>
-        
+
+        <h2>This is page: {decodeURI(params.docName)}</h2>
+
+
+
+
+        <Note data={data} />
         <Embed embedsrc={embed}/>
     </div>
   )
