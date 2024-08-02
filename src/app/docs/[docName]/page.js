@@ -17,7 +17,9 @@ const Robo_Mono = Poppins({
  * @returns {Array} An Array of docx Titles
  */
 async function get_titles(){
-  const res = await fetch(`http://${process.env.API_IP}:1339/API/docx-tests`)
+  const res = await fetch(
+    `http://${process.env.API_IP}:1339/API/docx-tests`,
+    { next: { revalidate: 120 } })
   const data = await res.json()
   const titles = data.data.map((item) => item.attributes.Title)
   return titles
@@ -30,7 +32,9 @@ async function get_titles(){
  */
 // 
 async function get_data(docName){
-  const res = await fetch(`http://${process.env.API_IP}:1339/API/docx-tests?filters[Title][$eq]=${docName}`)
+  const res = await fetch(
+    `http://${process.env.API_IP}:1339/API/docx-tests?filters[Title][$eq]=${docName}`,
+     { next: { revalidate: 120 } })
   const data = await res.json()
   return data
 }
@@ -71,6 +75,7 @@ export default async function docpage({ params }) {
         <a href="/docs">Link back</a>
 
         <div className={style.note_section}>
+          {/* <h1>{decodeURIComponent(params.docName)}</h1> */}
           <Note data={data} />
         </div>
         <div className={style.iframe_container_outer}>
