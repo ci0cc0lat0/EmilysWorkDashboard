@@ -1,0 +1,48 @@
+.document_page{
+    padding-bottom: 10%;
+    width: 37vw;
+    max-width: 1100px;
+    min-width: 700px;
+    margin: auto;
+}
+
+@media (max-width: 700px)  {
+    .document_page{
+        max-width: none;
+        min-width: 100px;
+        width: 90%;
+    }
+}
+
+.note_section{
+    font-family: var(--font) ;
+}
+.note_section :is(p, ul, ol){
+    font-size: 1.15rem;
+}
+.note_section :is(h1, h2, h3, h4, h5) {
+    font-weight: 500;
+    margin-top: 2vh;
+    margin-bottom: 0;
+}
+.note_section h1{
+    font-size: 3rem;
+    position: relative;
+    text-decoration: none;
+}
+
+.note_section h1::after{
+    content: "";
+    display: block;
+    width: 100%; /* Adjust the width as needed */
+    height: 2px; /* Adjust the height as needed */
+    background-color: black; /* Change the color as needed */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.note_section h2{
+    font-size: 2.5rem;
+}
+
+

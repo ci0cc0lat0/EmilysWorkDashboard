@@ -2,6 +2,15 @@ import React from 'react'
 import { notFound } from 'next/navigation'
 import Embed from '@/app/components/Embed'
 import Note from '@/app/components/Note'
+import style from '@/app/docName.module.css'
+import { Poppins } from 'next/font/google'
+
+const Robo_Mono = Poppins({
+  weight:['200','300','400','500','600','700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font'
+})
 
 /**
  * Gets all titles for dynamic routes
@@ -14,7 +23,6 @@ async function get_titles(){
   return titles
 }
 
-
 /**
  * Returns API object with data dependent on the current page
  * @param {string} docName The current dynamic route
@@ -26,7 +34,6 @@ async function get_data(docName){
   const data = await res.json()
   return data
 }
-
 
 /**
  * Returns the API attribute object for given webpage
@@ -60,16 +67,15 @@ export default async function docpage({ params }) {
   let embed = parse_for_embed(data.docx_embed)
 
   return (
-    <div>
+    <div className={`${style.document_page} ${Robo_Mono.className}`}>
         <a href="/docs">Link back</a>
 
-        <h2>This is page: {decodeURI(params.docName)}</h2>
-
-
-
-
-        <Note data={data} />
-        <Embed embedsrc={embed}/>
+        <div className={style.note_section}>
+          <Note data={data} />
+        </div>
+        <div className={style.iframe_container_outer}>
+          <Embed embedsrc={embed}/>
+        </div>  
     </div>
   )
 }
