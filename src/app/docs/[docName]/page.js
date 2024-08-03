@@ -77,6 +77,7 @@ export default async function docpage({ params }) {
         <div className={style.note_section}>
           {/* <h1>{decodeURIComponent(params.docName)}</h1> */}
           <Note data={data} />
+          <a href={embed} target='_blank'>Click here if embed does not load</a>
         </div>
         <div className={style.iframe_container_outer}>
           <Embed embedsrc={embed}/>
