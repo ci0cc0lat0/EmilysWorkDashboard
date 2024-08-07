@@ -1,9 +1,10 @@
 'use client'
 import Link from "next/link";
 import { useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-export default function docs(){
+
+function Content(){
     const [sort, set_sort] = useState('asc'); // initial state
     const [data, set_data] = useState();
 
@@ -42,6 +43,7 @@ export default function docs(){
             
             {/* JSON.stringify(data) */}
             
+            
             {data?.data?.data.map((item,index) => {
             return (
             <p key={index}>
@@ -50,6 +52,14 @@ export default function docs(){
                 </a>
             </p>)
             })} 
-        </>
+    </>
+    )
+}
+
+export default function docs(){
+    return (
+        <Suspense>
+            <Content/>
+        </Suspense>
     )
 }
