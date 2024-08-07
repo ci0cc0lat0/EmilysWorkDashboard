@@ -1,37 +1,28 @@
+'use client'
+import Link from "next/link";
 import { useSearchParams } from "next/navigation"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation";
 
 
-export default function server_guy({data_func, data_api, sort_state, sort_func}){
-  const router = useRouter();
-  const search_params = useSearchParams();
-  const sortby = search_params.get("sort")
-
-  useEffect(()=>{
-    if(sortby){
-      sort_func(sortby)
-    }
-  },[sortby])
-
-  
+export default function server_guy({sort_state}){
+  const [data, set_data] = useState();
 
   useEffect(()=>{
     async function fetch_data(){
-      const res = await fetch(`/test/api?sort=${sort_state}`)
-      const data = await res.json()
-      data_func(data)
-    }
-    
+      const res  = await fetch(`/docs/api?sort=${sort_state}`)
+      const api_data = await res.json()
+      set_data(api_data)
+  }
+    console.log("I am active")
     fetch_data()
-    router.push(
-      `?sort=${sort_state}`
-  )
   },[sort_state])
 
+ 
   return (
     <>
-      {data_api?.data?.data.map((item,index) => {
+
+       {data?.data?.data.map((item,index) => {
             return (
             <p key={index}>
                 <a href={`/docs/${item.attributes.Title}`}>
