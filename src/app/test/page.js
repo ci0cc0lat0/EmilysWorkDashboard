@@ -23,6 +23,9 @@ function Content(){
 export default function test(){
   
   return(
-    <Content/>
+    <Suspense>
+      <Content/>
+    </Suspense>
+    
   )
 }
