@@ -1,0 +1,19 @@
+.result_parent{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.result_item{
+  height: 2rem;
+  background-color: #B09E99;
+  border-radius: 500px;
+  color: black;
+  padding: 0.1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.result_item p {
+  margin: 0;
+}
