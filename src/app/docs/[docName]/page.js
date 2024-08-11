@@ -18,7 +18,7 @@ const Robo_Mono = Poppins({
  */
 async function get_titles(){
   const res = await fetch(
-    `http://${process.env.API_IP}:1339/API/docx-tests`,
+    `http://${process.env.API_IP}/API/docx-tests`,
     { next: { revalidate: 120 } })
   const data = await res.json()
   const titles = data.data.map((item) => item.attributes.Title)

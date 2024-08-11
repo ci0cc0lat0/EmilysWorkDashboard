@@ -1,8 +1,8 @@
 export async function GET(req){
   const searchParams = req.nextUrl.searchParams
   const sort = searchParams.get('sort')
-  
-  let api_url = `http://${process.env.API_IP}/api/docx-tests?sort=createdAt:${sort}`
+
+  let api_url = `http://${process.env.API_IP}/api/todo-lists?sort=createdAt:${sort}`
 
   try{
     const resp = await fetch(api_url)

@@ -18,6 +18,7 @@ export default function RootLayout({ children }) {
           <div className="nav_items">
             <a href="/">Home</a>
             <a href="/docs">Docs</a>
+            <a href="/todo-list">Todo list</a>
           </div>
         </div>
         </div>
