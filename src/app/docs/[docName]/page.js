@@ -33,7 +33,7 @@ async function get_titles(){
 // 
 async function get_data(docName){
   const res = await fetch(
-    `http://${process.env.API_IP}:1339/API/docx-tests?filters[Title][$eq]=${docName}`,
+    `http://${process.env.API_IP}/API/docx-tests?filters[Title][$eq]=${docName}`,
      { next: { revalidate: 120 } })
   const data = await res.json()
   return data
