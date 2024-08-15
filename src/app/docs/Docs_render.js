@@ -2,6 +2,12 @@
 import { useEffect, useState } from "react"
 import s from "./docs_render.module.css"
 
+function parse_time(date_string){
+  const regex = /^\d{4}-\d{2}-\d{2}/;
+  const date = date_string.match(regex)[0];
+  return date
+}
+
 export default function Docs_render({sort_state}){
   const [data, set_data] = useState();
 
@@ -38,6 +44,10 @@ export default function Docs_render({sort_state}){
     {
       key:"Meeting_Date",
       label:"Meeting Date"
+    },
+    {
+      key:"creation_time",
+      label:"Creation Time"
     }
   ]
   
@@ -59,12 +69,13 @@ export default function Docs_render({sort_state}){
                 {item.attributes.Title}
               </a>
             </td>
+            <td>{item.attributes.Document_Type ||'null'}</td>
             <td>{item.attributes.Market || 'null'}</td>
             <td>{item.attributes.Group || 'null'}</td>
             <td>{item.attributes.Meeting || 'null'}</td>
-            <td>{item.attributes.Document_Type ||'null'}</td>
             <td>{item.attributes.Meeting_Date ||'null'}</td>
-
+            <td>{parse_time(item.attributes.createdAt) || 'null'}</td>
+            
           </tr>
           )
         })}

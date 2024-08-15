@@ -18,10 +18,10 @@ const Robo_Mono = Poppins({
  */
 async function get_titles(){
   const res = await fetch(
-    `http://${process.env.API_IP}/API/docx-tests`,
+    `http://${process.env.API_IP}/API/documents`,
     { next: { revalidate: 120 } })
   const data = await res.json()
-  const titles = data.data.map((item) => item.attributes.Title)
+  const titles = data.data.map((item) => item.attributes.title)
   return titles
 }
 
@@ -33,7 +33,7 @@ async function get_titles(){
 // 
 async function get_data(docName){
   const res = await fetch(
-    `http://${process.env.API_IP}/API/docx-tests?filters[Title][$eq]=${docName}`,
+    `http://${process.env.API_IP}/API/documents?filters[title][$eq]=${docName}`,
      { next: { revalidate: 120 } })
   const data = await res.json()
   return data
