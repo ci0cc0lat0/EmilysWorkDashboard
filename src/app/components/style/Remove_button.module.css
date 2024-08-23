@@ -1,3 +1,6 @@
-.remove_container{
-  
+.remove_container:hover{
+  cursor:pointer;
 } 
+.remove_container{
+  padding:1rem;
+}

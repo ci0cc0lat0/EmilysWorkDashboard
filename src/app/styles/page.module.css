@@ -1,0 +1,68 @@
+.fp_wrapper{
+  background-color: #fee9e1;
+  width: 100vw;
+}
+.fp_grid_container{
+  background-color: #363636;
+  margin: 3rem auto;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  border-radius: 50px;
+
+  max-width: 800px;
+  width: 66%;
+  
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+}
+.fp_grid_item{
+  border-radius: 30px;
+
+  position: relative;
+  width: 40%;
+  padding-bottom:40%; /* aspect ratio of 100:value */
+  background-color: #B09E99;
+  color: white;
+  transition: 0.2s;
+}
+.fp_grid_item:hover{
+  scale: 1.1;
+  outline: 5px solid #64B6AC;
+  z-index: 4;
+  outline-offset: -5px;
+  
+}
+.fp_grid_item:hover hr{
+  color: #64B6AC;
+}
+
+.fp_item_wrapper{
+  padding: 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.fp_item_text{
+  text-align: center;
+  width: 100%;
+}
+.fp_item_text > h1 {
+  display: block;
+  font-size: 50px;
+}
+
+.fp_item_wrapper  hr {
+  width: 100%;
+
+}
+.fp_item_text > p{
+  font-size: larger;
+}

@@ -1,0 +1,27 @@
+.display_results{
+  max-width: 1200px;
+  width: 66%;
+  margin: 0 auto;
+  margin-top: 5rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  outline: 1px green solid;
+}
+
+.table_a{
+  background-color: #FAD4C0;
+  text-align: left;
+  width: 100%;
+  border-radius: 10px;
+}
+.table_a tr:nth-child(even) {
+  background-color: #FEE9E1;
+}
+.table_header{
+  color: #0000ff;
+}
+
+.table_a td, .table_a th{
+  padding: 0.5rem;
+}

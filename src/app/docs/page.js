@@ -85,8 +85,8 @@ function Render() {
 
   
 
-  // Used to add query parameters for filters
-  useEffect(()=>{
+  // Used to add query parameters for filters (DONT NEED??)
+/*   useEffect(()=>{
     const params = new URLSearchParams()
     if(doc_type) params.set('doc_type',doc_type)
     if(market) params.set('market_type',market)
@@ -102,7 +102,7 @@ function Render() {
     }
 
     window.history.replaceState(null,'',`/docs?${params.toString()}`)
-    },[doc_type,market,group,meeting,name_sortby, state_meeting, state_creation])
+    },[doc_type,market,group,meeting,name_sortby]) */
 
   // Used to fetch from the API dependent on the sorts and filters
   useEffect(()=>{
@@ -113,6 +113,8 @@ function Render() {
       if (group) params.set('group_type', group);
       if (meeting) params.set('meeting_type', meeting);
       if (name_sortby) params.set('sort', name_sortby);
+
+      window.history.replaceState(null,'',`/docs?${params.toString()}`)
 
       const res = await fetch (`/docs/api?${params.toString()}`)
       const api_data = await res.json()
@@ -175,29 +177,31 @@ function Render() {
             
             <Filter_button
             state_func={handle_doc_type} 
-            array_of_enums={enum_guys?.data.doc_type_enums}
+            array_of_enums={enum_guys?.data?.doc_type_enums}
             filter_name={"Document Type"}/>
             <Filter_button
             state_func={handle_market}
-            array_of_enums={enum_guys?.data.market_enums} 
+            array_of_enums={enum_guys?.data?.market_enums} 
             filter_name={"Market"}/>
             <Filter_button state_func={handle_group}
-            array_of_enums={enum_guys?.data.group_enums}
+            array_of_enums={enum_guys?.data?.group_enums}
             filter_name={"Group"}/>
             <Filter_button
             state_func={handle_meeting}
-            array_of_enums={enum_guys?.data.meeting_enums}
+            array_of_enums={enum_guys?.data?.meeting_enums}
             filter_name={"Meeting"}/>
-          </div>
-        </div >
-        
-        <div className={s.remove_wrapper}>
-        <button className={s.remove_wrapper_button}  onClick={()=>{
+
+<button className={s.remove_wrapper_button}  onClick={()=>{
               clear_doctype()
               clear_market()
               clear_group()
               clear_meeting()
             }}>Clear current filters</button>
+          </div>
+        </div >
+        
+        <div className={s.remove_wrapper}>
+        
           <div className={s.remove_container}>
             
             <h1>Filtering by: </h1> 

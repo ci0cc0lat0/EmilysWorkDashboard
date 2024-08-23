@@ -1,17 +1,20 @@
 .dd{
   position: relative;
   display: inline-block;
+  flex-grow: 0.01;
+
 }
 .dd_button{
   background-color: #64b6ac;
   height: 3rem;
-  min-width: 160px;
+  min-width: 120px;
 
 }
 .dd_options{
   position: absolute;
+
   background-color: #b09e99;
-  min-width: 160px;
+  min-width: 120px;
   z-index: 1;
 }
 .dd_option_show{display: block;}

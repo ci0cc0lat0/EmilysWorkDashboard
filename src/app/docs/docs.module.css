@@ -8,7 +8,8 @@
   border-radius: 1rem;
   padding: 1rem;
   box-sizing: border-box;
-  outline: 1px solid green;
+  outline: 1px green solid;
+
 }
 
 @media screen and (max-width:1000px) {
@@ -19,19 +20,15 @@
 }
 
 .sortandfilter_wrapper{
-  outline: 1px green solid;
   border-radius: 1rem;
-  height: 10rem;
+  
+  height: fit-content;
 }
 
 .sortandfilter{
   display: flex;
   flex-direction: row;
-  gap: 0.5rem;
-  justify-content:space-between;
-  align-items: center;
-  text-align: center;
-
+  flex-wrap:wrap;
 }
 .the_link{
   display: block;
@@ -65,12 +62,15 @@
 .remove_container h1{
   display: block;
   height: fit-content;
+  padding: 0.5rem;
+
 }
 
 .remove_container > div {
   height: fit-content;
   border: 2px solid #64b6ac;
-  padding: 0.2rem;
+  padding: 0.0rem;
+
   
 }
 .remove_wrapper_button{
