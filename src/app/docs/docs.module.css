@@ -29,7 +29,16 @@
   display: flex;
   flex-direction: row;
   flex-wrap:wrap;
+  gap: 1px;
 }
+
+@media screen and (max-width:700px) {
+  .sortandfilter{
+    flex-direction: column;
+    /* transition: 0.2s; */
+  }
+}
+
 .the_link{
   display: block;
   color: black;
@@ -52,6 +61,7 @@
 .remove_wrapper{
   margin-top: 1rem;
 }
+
 .remove_container{
   height: 3rem;
   margin: 1rem 0 ;
@@ -77,5 +87,14 @@
   margin-left: auto;
   background-color: #64B6AC;
   height: 3rem;
-  min-width: 160px;
+  min-width:  100px;
+  padding: 0.3rem;
+}
+
+@media screen and (max-width:700px) {
+  .remove_wrapper_button{
+  margin: 0;
+    
+    /* transition: 0.2s; */
+  }
 }

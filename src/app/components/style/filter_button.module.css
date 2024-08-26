@@ -14,8 +14,9 @@
   position: absolute;
 
   background-color: #b09e99;
-  min-width: 120px;
+  width: 120px;
   z-index: 1;
+  box-sizing:content-box;
 }
 .dd_option_show{display: block;}
 .dd_option_hidden{display: none;}
@@ -29,3 +30,13 @@
 
 .dd_options a:hover{background-color: aqua;}
 
+@media screen and (max-width:700px) {
+  .dd_button{
+    width: 100%;
+  
+  }
+  .dd_options{
+    width: 100%;
+    text-align: center;
+  }
+}

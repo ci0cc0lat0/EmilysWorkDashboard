@@ -196,7 +196,7 @@ function Render() {
               clear_market()
               clear_group()
               clear_meeting()
-            }}>Clear current filters</button>
+            }}>Clear filters</button>
           </div>
         </div >
         
