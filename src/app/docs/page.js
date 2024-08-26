@@ -256,7 +256,7 @@ function Render() {
                         {item.attributes.title}
                       </a>
                     </td>
-                    <td>{item.attributes.doc_Type || <i>null</i>}</td>
+                    <td>{item.attributes.doc_type || <i>null</i>}</td>
                     <td>{item.attributes.market || <i>null</i>}</td>
                     <td>{item.attributes.group || <i>null</i>}</td>
                     <td>{item.attributes.meeting || <i>null</i>}</td>
