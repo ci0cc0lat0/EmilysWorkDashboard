@@ -16,9 +16,10 @@ export async function GET(req){
   const market_name = searchParams.get('market_type')
   const group_name = searchParams.get('group_type')
   const meeting_name = searchParams.get('meeting_type')
+  const page_num = searchParams.get('page')
+  console.log(page_num)
 
-
-  let api_url = `http://${process.env.API_IP}/api/documents`
+  let api_url = `http://${process.env.API_IP}/api/documents?pagination[pageSize]=50`
 
   let test_url = `http://${process.env.API_IP}/api/documents`
   
@@ -28,6 +29,7 @@ export async function GET(req){
   let filter_market = ''
   let filter_group = ''
   let filter_meeting = ''
+  let paginate = ''
   if(doc_name){
     filter_doc = `&filters[doc_type][$eq]=${doc_name}`
   }
@@ -40,8 +42,11 @@ export async function GET(req){
   if(meeting_name){
     filter_meeting = `&filters[meeting][$eq]=${meeting_name}`
   }
+  if(page_num){
+    paginate = `&pagination[page]=${page_num}`
+  }
 
-  api_url = test_url+'?'+url_sort_addons[sort_name]+filter_doc+filter_market+filter_group+filter_meeting
+  api_url = api_url+paginate+'&'+url_sort_addons[sort_name]+filter_doc+filter_market+filter_group+filter_meeting
 
   console.log(api_url)
   /* switch (sort_name) {

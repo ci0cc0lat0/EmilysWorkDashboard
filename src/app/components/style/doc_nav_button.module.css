@@ -1,0 +1,18 @@
+/* Button Container div */
+.page_nav_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.page_nav_div{
+  display: inline-block;
+}
+
+.page_nav_button{
+  display: block;
+  min-width: 120px;
+  height: 3rem;
+  background-color: #64b6ac;
+
+}
