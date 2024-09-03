@@ -131,7 +131,7 @@ function Render() {
       if (page_num) params.set('page',page_num)
       window.history.replaceState(null,'',`/docs?${params.toString()}`)
 
-      const res = await fetch (`/docs/api?${params.toString()}`)
+      const res = await fetch (`/docs/api/maindocs?${params.toString()}`)
       const api_data = await res.json()
       set_data(api_data)
       set_page_count(api_data?.data.meta.pagination.pageCount)
