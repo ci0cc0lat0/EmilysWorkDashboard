@@ -25,13 +25,15 @@
     margin-top: 2vh;
     margin-bottom: 0;
 }
+
+
 .note_section h1{
     font-size: 3rem;
     position: relative;
     text-decoration: none;
 }
 
-.note_section h1::after{
+.url_title::after{
     content: "";
     display: block;
     width: 100%; /* Adjust the width as needed */
@@ -46,3 +48,7 @@
 }
 
 
+.url_title{
+    font-size: 3.3rem !important;
+    
+}
