@@ -8,7 +8,6 @@
   border-radius: 1rem;
   padding: 1rem;
   box-sizing: border-box;
-  outline: 1px green solid;
 
 }
 
@@ -21,8 +20,10 @@
 
 .sortandfilter_wrapper{
   border-radius: 1rem;
-  
+  outline: #64B6AC solid 5px;
+  padding: 10px;
   height: fit-content;
+  margin-bottom: 2rem;
 }
 
 .sortandfilter{
@@ -59,7 +60,7 @@
 }
 
 .remove_wrapper{
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .remove_container{

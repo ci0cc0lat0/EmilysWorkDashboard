@@ -214,7 +214,7 @@ function Render() {
               clear_meeting()
             }}>Clear filters</button>
           </div>
-        </div >
+        
         
         <div className={s.remove_wrapper}>
         
@@ -229,7 +229,7 @@ function Render() {
           </div>
         </div>
 
-
+        </div >
         <div className={s.display_results}>
           <table className={r.table_a}>
             <tbody className={r.table_tbody}>
@@ -292,14 +292,14 @@ function Render() {
           classNameDiv={nav.page_nav_div}
           classNameButton={nav.page_nav_button}
           func={handle_back_page}>
-            Last
+            Previous page
           </Doc_Nav_button>
 
           <Doc_Nav_button
           classNameDiv={nav.page_nav_div}
           classNameButton={nav.page_nav_button}
           func={handle_page}>
-            Next
+            Next page
           </Doc_Nav_button>
 
         

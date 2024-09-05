@@ -31,8 +31,8 @@ export default function Filter_button({array_of_enums,state_func,filter_name}){
   },[dd_ref])
 
   if(!array_of_enums) return (
-    <div>
-      <button>Loading content</button>
+    <div className={s.dd} ref={dd_ref}>
+      <button className={s.dd_button} onClick={on_click}>{filter_name}</button>
     </div>
   )
 

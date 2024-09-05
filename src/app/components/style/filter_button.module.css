@@ -28,7 +28,10 @@
   display: block;
 }
 
-.dd_options a:hover{background-color: aqua;}
+.dd_options a:hover{
+  background-color: #d0beb9;
+  cursor: pointer;
+}
 
 @media screen and (max-width:700px) {
   .dd_button{
