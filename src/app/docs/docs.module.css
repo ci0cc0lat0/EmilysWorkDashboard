@@ -18,6 +18,7 @@
 }
 
 .sortandfilter_wrapper{
+  margin: 0 10px 2rem 10px;
   border-radius: 1rem;
   outline: #64B6AC solid 5px;
   padding: 10px;
@@ -51,7 +52,7 @@
 }
 .display_results{
   outline: 5px solid #64B6AC;
-  margin: 1rem 0;
+  margin: 1rem 10px;
   padding: 10px;
   border-radius: 1rem;
   overflow: scroll;
