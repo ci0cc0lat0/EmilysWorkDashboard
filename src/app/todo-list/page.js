@@ -1,8 +1,6 @@
 'use client'
 import { useSearchParams } from "next/navigation";
-import Link from "next/link";
 import { Suspense, useEffect, useState } from "react";
-import List_render from "./List_render"
 import s from "./todolist.module.css"
 
 function Load_lists(){
@@ -37,7 +35,6 @@ function Load_lists(){
       state: title_sort
     }
   ]
-
   return (
     <>
       <div className={s.display_results}>

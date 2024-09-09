@@ -6,7 +6,7 @@ export default function Note({ data }){
     if(note == null){
         return
     }
-    console.log(note)
+    console.log('From note comp: ',note)
     return(
         <BlocksRenderer content={note}/>
     )

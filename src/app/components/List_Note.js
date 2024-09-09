@@ -2,11 +2,12 @@ import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
 
 export default function Note({ data }){
+    //console.log(data)
     const note = data.list_text;
     if(note == null){
         return
     }
-    console.log(note)
+    //console.log(note)
     return(
         <BlocksRenderer content={note}/>
     )

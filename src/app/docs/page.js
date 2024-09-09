@@ -140,20 +140,20 @@ function Render() {
   },[doc_type, market, group, meeting, name_sortby,page_num])
   const columns = [
     {
-      key: "title",
-      label: "Title",
-    },
-    {
-      key: "Document_Type",
-      label: "Doc Type"
-    },
-    {
       key: "Market",
       label: "Market"
     },
     {
+      key: "title",
+      label: "Title",
+    },
+    {
       key: "Group",
       label: "Group"
+    },
+    {
+      key: "Document_Type",
+      label: "Doc Type"
     },
     {
       key: "Meeting",
@@ -191,10 +191,7 @@ function Render() {
           
           <div className={s.sortandfilter}>
             
-            <Filter_button
-            state_func={handle_doc_type} 
-            array_of_enums={enum_guys?.data?.doc_type_enums}
-            filter_name={"Document Type"}/>
+           
             <Filter_button
             state_func={handle_market}
             array_of_enums={enum_guys?.data?.market_enums} 
@@ -202,6 +199,10 @@ function Render() {
             <Filter_button state_func={handle_group}
             array_of_enums={enum_guys?.data?.group_enums}
             filter_name={"Group"}/>
+             <Filter_button
+            state_func={handle_doc_type} 
+            array_of_enums={enum_guys?.data?.doc_type_enums}
+            filter_name={"Document Type"}/>
             <Filter_button
             state_func={handle_meeting}
             array_of_enums={enum_guys?.data?.meeting_enums}
@@ -221,9 +222,9 @@ function Render() {
           <div className={s.remove_container}>
             
             <h1>Filtering by: </h1> 
-            <Remove_button state={doc_type} state_func={clear_doctype}/>
             <Remove_button state={market} state_func={clear_market}/>
             <Remove_button state={group} state_func={clear_group}/>
+            <Remove_button state={doc_type} state_func={clear_doctype}/>
             <Remove_button state={meeting} state_func={clear_meeting}/>
             
           </div>
@@ -267,14 +268,14 @@ function Render() {
               {data?.data?.data.map((item, index) => {
                 return (
                   <tr key={index}>
+                    <td>{item.attributes.market || <i>null</i>}</td>
                     <td>
                       <a href={`/docs/${item.attributes.title}`}>
                         {item.attributes.title}
                       </a>
                     </td>
-                    <td>{item.attributes.doc_type || <i>null</i>}</td>
-                    <td>{item.attributes.market || <i>null</i>}</td>
                     <td>{item.attributes.group || <i>null</i>}</td>
+                    <td>{item.attributes.doc_type || <i>null</i>}</td>
                     <td>{item.attributes.meeting || <i>null</i>}</td>
                     <td>{item.attributes.meeting_date || <i>null</i>}</td>
                     <td>{parse_time(item.attributes.createdAt) || <i>null</i>}</td>

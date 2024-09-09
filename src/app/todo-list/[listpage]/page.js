@@ -41,7 +41,7 @@ export default async function todopage({params}){
 
   let init_data = await get_data(todo_list_name)
   let data = get_attributes(init_data)
-  
+  //console.log('Hello, I am data: ', data)
   return (
     <div className={`${style.document_page} ${Robo_Mono.className}`}>
       <div className={style.note_section}>
