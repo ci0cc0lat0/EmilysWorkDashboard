@@ -68,11 +68,16 @@ body{
   background-color: #B09E99;
   color: black;
 
-  font-family: Rubik;
+  font-family: var(--font-poppins);
   text-align: center;
   width: 100px;  
   font-size: larger;
 
+}
+
+ul > li {
+  margin-left: 25px;
+  list-style-type:disc;
 }
 
 /*

@@ -7,14 +7,14 @@
 .dd_button{
   background-color: #64b6ac;
   height: 3rem;
-  min-width: 120px;
+  min-width: 130px;
 
 }
 .dd_options{
   position: absolute;
 
   background-color: #b09e99;
-  width: 120px;
+  width: 130px;
   z-index: 1;
   box-sizing:content-box;
 }

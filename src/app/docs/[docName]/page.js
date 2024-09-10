@@ -71,7 +71,7 @@ export default async function docpage({ params }) {
   let embed = parse_for_embed(data.docx_embed)
 
   return (
-    <div className={`${style.document_page} ${Robo_Mono.className}`}>
+    <div className={`${style.document_page} ${Robo_Mono.variable}`}>
         <a href="/docs">Link back</a>
 
         <div className={style.note_section}>

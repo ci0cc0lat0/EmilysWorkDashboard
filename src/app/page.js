@@ -1,6 +1,14 @@
 import Image from "next/image";
 import s from "@/app/styles/page.module.css"
 import Link from "next/link";
+import { Poppins } from 'next/font/google'
+
+const Poppins_font = Poppins({
+  weight:['200','300','400','500','600','700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins'
+})
 
 function Grid_item({title,children,href="#"}){
 
@@ -23,7 +31,7 @@ export default function Home() {
   return (
     <main className={s.main}>
       <div className={s.fp_wrapper}>
-        <div className={s.fp_grid_container}>
+        <div className={`${s.fp_grid_container} ${Poppins_font.variable}`}>
           <Grid_item title="Docs" href="/docs">
             The collection of Documents written up and stored
           </Grid_item>

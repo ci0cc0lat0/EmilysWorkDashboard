@@ -7,6 +7,8 @@
   padding: 1rem;
   box-sizing: border-box;
   outline: 5px #64b6ac solid;
+  font-family: var(--font-poppins);
+  font-weight: 300;
 }
 
 .table_a{

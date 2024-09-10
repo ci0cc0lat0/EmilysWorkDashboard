@@ -2,6 +2,14 @@
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import s from "./todolist.module.css"
+import { Poppins } from 'next/font/google'
+
+const Poppins_font = Poppins({
+  weight:['200','300','400','500','600','700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins'
+})
 
 function Load_lists(){
   const searchParams = useSearchParams();
@@ -37,7 +45,7 @@ function Load_lists(){
   ]
   return (
     <>
-      <div className={s.display_results}>
+      <div className={`${s.display_results} ${Poppins_font.variable}`}>
         <table className={s.table_a}>
           <tbody className={s.table_tbody}>
             <tr>

@@ -11,6 +11,15 @@ import Remove_button from "../components/Remove_filter";
 import { jsx } from "react/jsx-runtime";
 import Doc_Nav_button from "../components/Doc_Nav_button";
 
+import { Poppins } from 'next/font/google'
+
+const Poppins_font = Poppins({
+  weight:['200','300','400','500','600','700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins'
+})
+
 /**
  * Belongs to the render function
  * @param {*} date_string date string with time
@@ -186,7 +195,7 @@ function Render() {
 
   return (
     <>
-      <div className={s.page_wrapper}>
+      <div className={`${s.page_wrapper} ${Poppins_font.variable}`}>
         <div className={s.sortandfilter_wrapper}>
           
           <div className={s.sortandfilter}>
