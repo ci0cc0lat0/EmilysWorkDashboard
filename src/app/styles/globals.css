@@ -80,6 +80,15 @@ ul > li {
   list-style-type:disc;
 }
 
+@media screen and (max-width:450px) {
+ .logo{
+  display: none;
+ }
+ .nav_container{
+  justify-content: center;
+ }
+
+}
 /*
 .iframe_container_a{
   margin: auto;
