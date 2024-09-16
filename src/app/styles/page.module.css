@@ -59,7 +59,7 @@
 }
 .fp_item_text > h1 {
   display: block;
-  font-size: min(3vw, 350%);
+  font-size: min(3vw, 300%);
 }
 
 .fp_item_wrapper  hr {
