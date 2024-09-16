@@ -9,7 +9,7 @@ const Poppins_font = Poppins({
   variable: '--font-poppins'
 })
 export const metadata = {
-  title: "Sunsideup",
+  title: "Sun side up",
   description: "An solution to a problem",
 };
 
