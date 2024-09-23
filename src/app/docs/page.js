@@ -171,10 +171,6 @@ function Render() {
     {
       key: "Meeting_Date",
       label: "Meeting Date"
-    },
-    {
-      key: "creation_time",
-      label: "Creation Time"
     }
   ]
 
@@ -254,7 +250,6 @@ function Render() {
                   let sortParam = ''
                   if(column.key === "title") sortParam = state_name;
                   else if(column.key === "Meeting_Date") sortParam = state_meeting;
-                  else if(column.key === "creation_time") sortParam = state_creation;
 
                   if (sortParam) params.set('sort',sortParam)
                   
@@ -287,7 +282,6 @@ function Render() {
                     <td>{item.attributes.doc_type || <i>null</i>}</td>
                     <td>{item.attributes.meeting || <i>null</i>}</td>
                     <td>{item.attributes.meeting_date || <i>null</i>}</td>
-                    <td>{parse_time(item.attributes.createdAt) || <i>null</i>}</td>
 
                   </tr>
                 )
