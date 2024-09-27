@@ -1,0 +1,19 @@
+
+.table_a{
+  background-color: #FAD4C0;
+  text-align: left;
+  width: 100%;
+  border-radius: 10px;
+}
+.table_a tr:nth-child(even) {
+  background-color: #FEE9E1;
+}
+.table_a td, .table_a th{
+  max-width: 400px;
+  padding: 0.5rem ;
+
+}
+
+.linker{
+  padding: 0.2rem 1.5rem 0.2rem 0;
+}
