@@ -1,4 +1,4 @@
-import s from "@/app/components/style/filter_button.module.css"
+import s from "@/app/components/style/filter_button.module.scss"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 

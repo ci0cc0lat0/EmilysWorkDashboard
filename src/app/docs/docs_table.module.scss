@@ -1,12 +1,13 @@
+@use '@/app/styles/global_scss' as gs;
 
 .table_a{
-  background-color: #FAD4C0;
+  background-color: gs.$bg-tone-2;
   text-align: left;
   width: 100%;
   border-radius: 10px;
 }
 .table_a tr:nth-child(even) {
-  background-color: #FEE9E1;
+  background-color: gs.$bg;
 }
 .table_a td, .table_a th{
   max-width: 400px;

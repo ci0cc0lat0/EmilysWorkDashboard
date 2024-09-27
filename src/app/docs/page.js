@@ -2,9 +2,9 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation"
 import { Suspense, useState, useEffect } from "react";
-import s from './docs.module.css'
-import r from "./docs_table.module.css"
-import nav from "@/app/components/style/doc_nav_button.module.css"
+import s from './docs.module.scss'
+import r from "./docs_table.module.scss"
+import nav from "@/app/components/style/doc_nav_button.module.scss"
 import Filter_button from "../components/Filter_Button";
 import Sort_toggle from "../components/Sort_toggle";
 import Remove_button from "../components/Remove_filter";

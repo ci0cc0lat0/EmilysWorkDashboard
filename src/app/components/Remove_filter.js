@@ -1,4 +1,4 @@
-import s from "@/app/components/style/Remove_button.module.css"
+import s from "@/app/components/style/Remove_button.module.scss"
 
 export default function Remove_button({state, state_func}){
   function handle_onClick(){

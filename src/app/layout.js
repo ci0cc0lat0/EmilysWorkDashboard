@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import "@/app/styles/globals.css";
+import "@/app/styles/globals.scss";
 import { Poppins } from 'next/font/google'
 
 const Poppins_font = Poppins({

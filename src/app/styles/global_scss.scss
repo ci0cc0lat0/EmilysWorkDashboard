@@ -1,19 +1,54 @@
-$bg1: #fee9e1;
-$nav1:#fad4c0;
-$border1:#64b6ac;
-$doc-buttons1:#64b6ac;
-$doc-filter-highlight1:#d0beb9;
-$dark1: #363636;
-$buttons1: #b09e99;
-$text-color1: #ffffff;
-$text-link-color1: #0000ff;
+// colors
+/*
+$bg: #fee9e1;
+$bg-tone-2:#fad4c0;
+$border:#64b6ac;
+$button-as-border:$border;
+$options-highlight:#d0beb9;
+$home-dark: #363636;
+$buttons: #b09e99;
+$options: $buttons; 
 
-$bg2: #fee9e1;
-$nav2:#fad4c0;
-$border2:#64b6ac;
-$doc-buttons2:#64b6ac;
-$doc-filter-highlight2:#d0beb9;
-$dark2: #363636;
-$buttons2: #b09e99;
-$text-color2: #ffffff;
-$text-link-color2: #0000ff;
+$bg-main-tone:;
+$bg-sec-tone:;
+$hp_menu_bg:;
+$nav_buttons:;
+$border_main:;
+$border_sec:;
+$docs_filter_buttons:;
+$docs_options:;
+$docs_remove_bottons_border:;
+$docs_nav_button:;
+$table_tone1:;
+$table_tone2:; 
+
+
+$text-color-white: #ffffff;
+$text-color-black: #000000;
+$text-color-link: #0000ff;
+*/
+
+
+$text-color-white: #ffffff;
+$text-color-black: #000000;
+$text-color-link: #0000ff;
+
+// Sizes
+$max-width: 1200px;
+
+$background: #EAE6DA;
+$primary-text: #3B3B3B;
+$secondary-text:#666666;
+$buttons-prim: #ffba4ca8;
+$buttons-sec: #8D7F70;
+$hover-effect:#894e4e;
+$border-2: #A8A8A8;
+
+$bg: $background;
+$bg-tone-2:$background;
+$border:$border-2;
+$button-as-border:$border-2;
+$options-highlight:$buttons-sec;
+$home-dark: #363636;
+$buttons: $buttons-prim;
+$options: $buttons-sec;

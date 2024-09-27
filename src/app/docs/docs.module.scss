@@ -1,7 +1,8 @@
+@use '@/app/styles/global_scss' as gs;
 
 
 .page_wrapper{
-  max-width: 1200px;
+  max-width: gs.$max-width;
   width: 66%;
   margin: 0 auto;
   margin-top: 5rem;
@@ -21,7 +22,7 @@
 .sortandfilter_wrapper{
   margin: 0 10px 2rem 10px;
   border-radius: 1rem;
-  outline: #64B6AC solid 5px;
+  outline: gs.$border solid 5px;
   padding: 10px;
   height: fit-content;
   margin-bottom: 2rem;
@@ -46,16 +47,16 @@
 
 .the_link{
   display: block;
-  color: black;
+  color: gs.$text-color-black;
   font-size: x-large;
-  background-color: #FAD4C0;
+  background-color: gs.$bg-tone-2;
   padding: 0.3rem;
   text-align: center;
   border-radius: 1rem;
 
 }
 .display_results{
-  outline: 5px solid #64B6AC;
+  outline: 5px solid gs.$border;
   margin: 1rem 10px;
   padding: 10px;
   border-radius: 1rem;
@@ -83,14 +84,14 @@
 
 .remove_container > div {
   height: fit-content;
-  border: 2px solid #64b6ac;
+  border: 2px solid gs.$button-as-border;
   padding: 0.0rem;
 
   
 }
 .remove_wrapper_button{
   margin-left: auto;
-  background-color: #64B6AC;
+  background-color: gs.$button-as-border;
   height: 3rem;
   min-width:  100px;
   padding: 0.3rem;

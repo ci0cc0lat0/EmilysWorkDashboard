@@ -1,27 +1,29 @@
+@use '@/app/styles/global_scss' as gs;
+
 .display_results{
-  max-width: 1200px;
+  max-width: gs.$max-width;
   width: 66%;
   margin: 0 auto;
   margin-top: 5rem;
   border-radius: 1rem;
   padding: 1rem;
   box-sizing: border-box;
-  outline: 5px #64b6ac solid;
+  outline: 5px gs.$border solid;
   font-family: var(--font-poppins);
   font-weight: 300;
 }
 
 .table_a{
-  background-color: #FAD4C0;
+  background-color: gs.$bg-tone-2;
   text-align: left;
   width: 100%;
   border-radius: 10px;
 }
 .table_a tr:nth-child(even) {
-  background-color: #FEE9E1;
+  background-color: gs.$bg;
 }
 .table_header{
-  color: #0000ff;
+  color: gs.$text-color-link;
 }
 
 .table_a td, .table_a th{

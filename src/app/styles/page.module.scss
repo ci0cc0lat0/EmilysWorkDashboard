@@ -1,9 +1,11 @@
+@use '@/app/styles/global_scss' as gs;
+
 .fp_wrapper{
-  background-color: #fee9e1;
+  background-color: gs.$bg;
   width: 100vw;
 }
 .fp_grid_container{
-  background-color: #363636;
+  background-color: gs.$home-dark;
   margin: 3rem auto;
   padding-top: 4rem;
   padding-bottom: 4rem;
@@ -27,19 +29,19 @@
   position: relative;
   width: 40%;
   padding-bottom:40%; /* aspect ratio of 100:value */
-  background-color: #B09E99;
+  background-color: gs.$buttons;
   color: white;
   /* transition: 0.2s; */
 }
 .fp_grid_item:hover{
   scale: 1.1;
-  outline: 5px solid #64B6AC;
+  outline: 5px solid gs.$border;
   z-index: 4;
   outline-offset: -5px;
   
 }
 .fp_grid_item:hover hr{
-  color: #64B6AC;
+  color: gs.$border;
 }
 
 .fp_item_wrapper{
@@ -86,7 +88,7 @@
     position: relative;
     width: 60%;
     padding-bottom:60%; /* aspect ratio of 100:value */
-    background-color: #B09E99;
+    background-color: gs.$buttons;
     color: white;
     /* transition: 0.2s; */
   }
@@ -127,7 +129,7 @@
     position: relative;
     width: 80%;
     padding-bottom:80%; /* aspect ratio of 100:value */
-    background-color: #B09E99;
+    background-color: gs.$buttons;
     color: white;
   }
   .fp_item_wrapper{

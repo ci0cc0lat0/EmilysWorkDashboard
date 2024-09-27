@@ -2,7 +2,7 @@ import React from 'react'
 import { notFound } from 'next/navigation'
 import Embed from '@/app/components/Embed'
 import Note from '@/app/components/Note'
-import style from '@/app/styles/notes_render.module.css'
+import style from '@/app/styles/notes_render.module.scss'
 import { Poppins } from 'next/font/google'
 
 const Robo_Mono = Poppins({

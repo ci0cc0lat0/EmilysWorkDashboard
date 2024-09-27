@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation"
 import List_Note from '@/app/components/List_Note'
-import style from '@/app/styles/notes_render.module.css'
+import style from '@/app/styles/notes_render.module.scss'
 import { Poppins } from 'next/font/google'
 
 

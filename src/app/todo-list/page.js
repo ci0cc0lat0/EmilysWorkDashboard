@@ -1,7 +1,7 @@
 'use client'
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
-import s from "./todolist.module.css"
+import s from "./todolist.module.scss"
 import { Poppins } from 'next/font/google'
 
 const Poppins_font = Poppins({

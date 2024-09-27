@@ -1,5 +1,5 @@
 import Image from "next/image";
-import s from "@/app/styles/page.module.css"
+import s from "@/app/styles/page.module.scss"
 import Link from "next/link";
 import { Poppins } from 'next/font/google'
 

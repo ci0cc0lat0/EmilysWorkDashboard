@@ -1,3 +1,5 @@
+@use '@/app/styles/global_scss' as gs;
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,12 +11,12 @@ iframe{
   
 }
 a{
-  color:#0000ff; 
+  color:gs.$text-color-link; 
   text-decoration: none;
 }
 
 body{
-  background-color: #FEE9E1;
+  background-color: gs.$bg;
   margin: 0;
 }
 
@@ -29,13 +31,13 @@ body{
 .nav_wrapper{
   height: 7rem;
   width: 100%;
-  border-bottom:#64B6AC solid 5px;
-  background-color:#FAD4C0;
+  border-bottom:gs.$border solid 5px;
+  background-color:gs.$bg-tone-2;
   
 }
 
 .nav_container{
-  max-width: 1200px;
+  max-width: gs.$max-width;
   margin: auto;
   width: 66%;
   height: 100%;
@@ -65,8 +67,8 @@ body{
   padding: 2px;
   text-decoration: none;
   border-radius: 50px;
-  background-color: #B09E99;
-  color: black;
+  background-color: gs.$buttons;
+  color: gs.$text-color-black;
 
   font-family: var(--font-poppins);
   text-align: center;
