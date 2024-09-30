@@ -3,8 +3,11 @@ export async function GET(req){
     '':'',
     'a-z':'sort=title:asc',
     'z-a':'sort=title:desc',
-    'new':'sort=createdAt:desc',
-    'old':'sort=createdAt:asc',
+
+    // Main
+    'new':'sort=Date:desc',
+    'old':'sort=Date:asc',
+
     'asc':'sort=meeting_date:asc',
     'desc':'sort=meeting_date:desc',
   }
@@ -15,7 +18,6 @@ export async function GET(req){
   const doc_name = searchParams.get('doc_type')
   const market_name = searchParams.get('market_type')
   const group_name = searchParams.get('group_type')
-  const meeting_name = searchParams.get('meeting_type')
   const page_num = searchParams.get('page')
   console.log(page_num)
 
@@ -31,7 +33,7 @@ export async function GET(req){
   let filter_meeting = ''
   let paginate = ''
   if(doc_name){
-    filter_doc = `&filters[doc_type][$eq]=${doc_name}`
+    filter_doc = `&filters[Document][$eq]=${doc_name}`
   }
   if(market_name){
     filter_market = `&filters[market][$eq]=${market_name}`
@@ -39,14 +41,11 @@ export async function GET(req){
   if(group_name){
     filter_group = `&filters[group][$eq]=${group_name}`
   }
-  if(meeting_name){
-    filter_meeting = `&filters[meeting][$eq]=${meeting_name}`
-  }
   if(page_num){
     paginate = `&pagination[page]=${page_num}`
   }
 
-  api_url = api_url+paginate+'&'+url_sort_addons[sort_name]+filter_doc+filter_market+filter_group+filter_meeting
+  api_url = api_url+paginate+'&'+url_sort_addons[sort_name]+filter_doc+filter_market+filter_group
 
   console.log(api_url)
   /* switch (sort_name) {

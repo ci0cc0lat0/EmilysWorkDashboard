@@ -135,7 +135,6 @@ function Render() {
       if (doc_type) params.set('doc_type', doc_type);
       if (market) params.set('market_type', market);
       if (group) params.set('group_type', group);
-      if (meeting) params.set('meeting_type', meeting);
       if (name_sortby) params.set('sort', name_sortby);
       if (page_num) params.set('page',page_num)
       window.history.replaceState(null,'',`/docs?${params.toString()}`)
@@ -146,7 +145,7 @@ function Render() {
       set_page_count(api_data?.data.meta.pagination.pageCount)
     }
     fetch_data2()
-  },[doc_type, market, group, meeting, name_sortby,page_num])
+  },[doc_type, market, group, name_sortby,page_num])
   const columns = [
     {
       key: "Market",
@@ -161,16 +160,12 @@ function Render() {
       label: "Group"
     },
     {
-      key: "Document_Type",
-      label: "Doc Type"
+      key: "Document",
+      label: "Document"
     },
     {
-      key: "Meeting",
-      label: "Meeting"
-    },
-    {
-      key: "Meeting_Date",
-      label: "Meeting Date"
+      key: "Date",
+      label: "Date"
     }
   ]
 
@@ -207,11 +202,8 @@ function Render() {
              <Filter_button
             state_func={handle_doc_type} 
             array_of_enums={enum_guys?.data?.doc_type_enums}
-            filter_name={"Document Type"}/>
-            <Filter_button
-            state_func={handle_meeting}
-            array_of_enums={enum_guys?.data?.meeting_enums}
-            filter_name={"Meeting"}/>
+            filter_name={"Document"}/>
+
 
 <button className={s.remove_wrapper_button}  onClick={()=>{
               clear_doctype()
@@ -230,7 +222,6 @@ function Render() {
             <Remove_button state={market} state_func={clear_market}/>
             <Remove_button state={group} state_func={clear_group}/>
             <Remove_button state={doc_type} state_func={clear_doctype}/>
-            <Remove_button state={meeting} state_func={clear_meeting}/>
             
           </div>
         </div>
@@ -249,7 +240,7 @@ function Render() {
 
                   let sortParam = ''
                   if(column.key === "title") sortParam = state_name;
-                  else if(column.key === "Meeting_Date") sortParam = state_meeting;
+                  else if(column.key === "Date") sortParam = state_meeting;
 
                   if (sortParam) params.set('sort',sortParam)
                   
@@ -272,16 +263,15 @@ function Render() {
               {data?.data?.data.map((item, index) => {
                 return (
                   <tr key={index}>
-                    <td>{item.attributes.market || <i>null</i>}</td>
+                    <td>{item.attributes.Market || <i>null</i>}</td>
                     <td>
                       <a href={`/docs/${item.attributes.title}`}>
                         {item.attributes.title}
                       </a>
                     </td>
-                    <td>{item.attributes.group || <i>null</i>}</td>
-                    <td>{item.attributes.doc_type || <i>null</i>}</td>
-                    <td>{item.attributes.meeting || <i>null</i>}</td>
-                    <td>{item.attributes.meeting_date || <i>null</i>}</td>
+                    <td>{item.attributes.Group || <i>null</i>}</td>
+                    <td>{item.attributes.Document || <i>null</i>}</td>
+                    <td>{item.attributes.Date || <i>null</i>}</td>
 
                   </tr>
                 )
