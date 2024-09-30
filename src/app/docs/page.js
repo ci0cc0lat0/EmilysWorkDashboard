@@ -148,12 +148,12 @@ function Render() {
   },[doc_type, market, group, name_sortby,page_num])
   const columns = [
     {
-      key: "Market",
-      label: "Market"
-    },
-    {
       key: "title",
       label: "Title",
+    },
+    {
+      key: "Market",
+      label: "Market"
     },
     {
       key: "Group",
@@ -263,12 +263,13 @@ function Render() {
               {data?.data?.data.map((item, index) => {
                 return (
                   <tr key={index}>
-                    <td>{item.attributes.Market || <i>null</i>}</td>
                     <td>
                       <a href={`/docs/${item.attributes.title}`}>
                         {item.attributes.title}
                       </a>
                     </td>
+                    <td>{item.attributes.Market || <i>null</i>}</td>
+                    
                     <td>{item.attributes.Group || <i>null</i>}</td>
                     <td>{item.attributes.Document || <i>null</i>}</td>
                     <td>{item.attributes.Date || <i>null</i>}</td>
