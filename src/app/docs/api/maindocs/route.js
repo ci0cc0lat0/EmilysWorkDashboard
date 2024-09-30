@@ -36,10 +36,10 @@ export async function GET(req){
     filter_doc = `&filters[Document][$eq]=${doc_name}`
   }
   if(market_name){
-    filter_market = `&filters[market][$eq]=${market_name}`
+    filter_market = `&filters[Market][$eq]=${market_name}`
   }
   if(group_name){
-    filter_group = `&filters[group][$eq]=${group_name}`
+    filter_group = `&filters[Group][$eq]=${group_name}`
   }
   if(page_num){
     paginate = `&pagination[page]=${page_num}`
