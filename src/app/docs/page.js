@@ -146,6 +146,8 @@ function Render() {
     }
     fetch_data2()
   },[doc_type, market, group, name_sortby,page_num])
+
+  // Order of the column headers in the table
   const columns = [
     {
       key: "title",
@@ -262,6 +264,7 @@ function Render() {
               
               {data?.data?.data.map((item, index) => {
                 return (
+                  // Order of the columns in the table. Should match the headers
                   <tr key={index}>
                     <td>
                       <a href={`/docs/${item.attributes.title}`}>
