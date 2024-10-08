@@ -11,14 +11,6 @@ import Remove_button from "../components/Remove_filter";
 import { jsx } from "react/jsx-runtime";
 import Doc_Nav_button from "../components/Doc_Nav_button";
 
-
-import { instantMeiliSearch } from "@meilisearch/instant-meilisearch";
-import { InstantSearch, SearchBox, InfiniteHits } from 'react-instantsearch';
-
-
-const { searchClient, setMeiliSeachParams } = instantMeiliSearch('http://craftmachine:7700/','laNNqpZmPQ5VAHTyxFDsXBRiOAUtitcY71dJ7_4I7y0')
-
-
 import { Poppins } from 'next/font/google'
 
 const Poppins_font = Poppins({

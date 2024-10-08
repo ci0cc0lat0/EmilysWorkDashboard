@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@meilisearch/instant-meilisearch": "^0.21.0",
     "@nextui-org/dropdown": "^2.1.29",
     "@nextui-org/table": "^2.0.39",
     "@strapi/blocks-react-renderer": "^1.0.1",
