@@ -3,6 +3,7 @@ import s from "@/app/styles/page.module.scss"
 import Link from "next/link";
 import { Poppins } from 'next/font/google'
 
+
 const Poppins_font = Poppins({
   weight:['200','300','400','500','600','700'],
   subsets: ['latin'],

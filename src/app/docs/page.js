@@ -11,6 +11,14 @@ import Remove_button from "../components/Remove_filter";
 import { jsx } from "react/jsx-runtime";
 import Doc_Nav_button from "../components/Doc_Nav_button";
 
+
+import { instantMeiliSearch } from "@meilisearch/instant-meilisearch";
+import { InstantSearch, SearchBox, InfiniteHits } from 'react-instantsearch';
+
+
+const { searchClient, setMeiliSeachParams } = instantMeiliSearch('http://craftmachine:7700/','laNNqpZmPQ5VAHTyxFDsXBRiOAUtitcY71dJ7_4I7y0')
+
+
 import { Poppins } from 'next/font/google'
 
 const Poppins_font = Poppins({
@@ -31,6 +39,7 @@ function parse_time(date_string) {
   return date
 }
 
+
 /**
  * 
  * @param {*} {sort_state} The query parameter from the Content component.
@@ -41,6 +50,9 @@ function Render() {
   const [enum_guys, set_enums] = useState();
   const [page_count, set_page_count] = useState();
   
+
+
+
 
   function handle_doc_type(filter_to_set) {
     if(filter_to_set === doc_type) set_doc_type()
@@ -71,7 +83,7 @@ function Render() {
   }
 
   function handle_page(){
-    if(page_num >= page_count) return
+    if(page_num >= page_count)return
     set_page_num(page_num+1)
 
   }
@@ -92,7 +104,7 @@ function Render() {
   }, [])
 
 
-
+ 
 
   const searchParams = useSearchParams();
   const name_sortby = searchParams.get("sort") || 'a-z'
@@ -101,37 +113,20 @@ function Render() {
   const state_meeting = name_sortby === 'new' ? 'old' : 'new';
   const state_creation = name_sortby === 'asc' ? 'desc' : 'asc';
 
-
+  const [fuzzy_search,set_fuzzy_search] = useState(searchParams.get('search')||'');
+  
+  const [debounce_input, set_debounce] = useState(searchParams.get('search'));
   const [doc_type, set_doc_type] = useState(searchParams.get('doc_type'));
   const [market, set_market] = useState(searchParams.get('market_type'));
   const [group, set_group] = useState(searchParams.get('group_type'));
   const [meeting, set_meeting] = useState(searchParams.get('meeting_type'));
-  const [page_num, set_page_num] = useState(searchParams.get('page')||1);
+  const [page_num, set_page_num] = useState(parseInt(searchParams.get('page'))||1);
   
 
-  // Used to add query parameters for filters (DONT NEED??)
-/*   useEffect(()=>{
-    const params = new URLSearchParams()
-    if(doc_type) params.set('doc_type',doc_type)
-    if(market) params.set('market_type',market)
-    if(group) params.set('group_type',group)
-    if(meeting) params.set('meeting_type',meeting)
-
-    if (name_sortby) {
-      params.set('sort', name_sortby);
-    } else if (state_meeting) {
-      params.set('sort', state_meeting);
-    } else if (state_creation) {
-      params.set('sort', state_creation);
-    }
-
-    window.history.replaceState(null,'',`/docs?${params.toString()}`)
-    },[doc_type,market,group,meeting,name_sortby]) */
-
-  // Used to fetch from the API dependent on the sorts and filters
   useEffect(()=>{
     async function fetch_data2(){
       const params = new URLSearchParams();
+      if (debounce_input) params.set('search',debounce_input)
       if (doc_type) params.set('doc_type', doc_type);
       if (market) params.set('market_type', market);
       if (group) params.set('group_type', group);
@@ -139,13 +134,18 @@ function Render() {
       if (page_num) params.set('page',page_num)
       window.history.replaceState(null,'',`/docs?${params.toString()}`)
 
-      const res = await fetch (`/docs/api/maindocs?${params.toString()}`)
+      const res = await fetch (`/docs/api/meilisearch?${params.toString()}`)
       const api_data = await res.json()
       set_data(api_data)
-      set_page_count(api_data?.data.meta.pagination.pageCount)
+      try{
+        set_page_count(parseInt(api_data?.data.totalPages))
+      }
+      catch(e){
+
+      }
     }
     fetch_data2()
-  },[doc_type, market, group, name_sortby,page_num])
+  },[doc_type, market, group, name_sortby,page_num,debounce_input])
 
   // Order of the column headers in the table
   const columns = [
@@ -186,9 +186,30 @@ function Render() {
   }
   
 
+
+  useEffect(()=>{
+    const handler = setTimeout(()=>{
+      set_debounce(fuzzy_search)
+    },500)
+
+    return () => {
+      clearTimeout(handler)
+    }
+  },[fuzzy_search])
+
+
+  
   return (
     <>
       <div className={`${s.page_wrapper} ${Poppins_font.variable}`}>
+        
+        <div className={s.search_bar}>
+          <input value={fuzzy_search}
+          onChange={(e)=>set_fuzzy_search(e.target.value)}
+          placeholder="Search a doc..."
+          ></input>
+
+        </div>
         <div className={s.sortandfilter_wrapper}>
           
           <div className={s.sortandfilter}>
@@ -262,20 +283,20 @@ function Render() {
               </tr>
 
               
-              {data?.data?.data.map((item, index) => {
+              {data?.data.hits.map((item, index) => {
                 return (
                   // Order of the columns in the table. Should match the headers
                   <tr key={index}>
                     <td>
-                      <a href={`/docs/${item.attributes.title}`}>
-                        {item.attributes.title}
+                      <a href={`/docs/${item.title}`}>
+                        {item.title}
                       </a>
                     </td>
-                    <td>{item.attributes.Market || <i>null</i>}</td>
+                    <td>{item.Market || <i>null</i>}</td>
                     
-                    <td>{item.attributes.Group || <i>null</i>}</td>
-                    <td>{item.attributes.Document || <i>null</i>}</td>
-                    <td>{item.attributes.Date || <i>null</i>}</td>
+                    <td>{item.Group || <i>null</i>}</td>
+                    <td>{item.Document || <i>null</i>}</td>
+                    <td>{item.Date || <i>null</i>}</td>
 
                   </tr>
                 )

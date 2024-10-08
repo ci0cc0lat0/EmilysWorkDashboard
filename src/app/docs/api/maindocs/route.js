@@ -19,12 +19,50 @@ export async function GET(req){
   const market_name = searchParams.get('market_type')
   const group_name = searchParams.get('group_type')
   const page_num = searchParams.get('page')
+  const search_input = searchParams.get('search')
   console.log(page_num)
 
+  let search_url = `http://${process.env.API_IP}/api/fuzzy-search/search?query=${search_input}`
   let api_url = `http://${process.env.API_IP}/api/documents?pagination[pageSize]=50`
 
   let test_url = `http://${process.env.API_IP}/api/documents`
   
+  if(search_input){
+    /*
+    filters
+    https://emmi.anthonyciocco.com/api/fuzzy-search/search?query=meeting&filters[documents][Market][$eq]=NV
+
+    paginate
+    https://emmi.anthonyciocco.com/api/fuzzy-search/search?query=meeting&pagination[documents][pageSize]=1&pagination[documents][page]=2
+    */
+    console.log(search_url)
+    try{
+      const resp = await fetch(search_url)
+      const data1 = await resp.json()
+      const data = {
+        data: data1.documents.map((doc)=>({
+          id:doc.id,
+          attributes:{
+            title:doc.title,
+            docx_embed: doc.docx_embed,
+            note: doc.note,
+            Market:doc.Market,
+            createdAt: doc.createdAt,
+            updatedAt:doc.updatedAt,
+            publishedAt:doc.publishedAt,
+            Date:doc.Date,
+            Document:doc.Document,
+            Group:doc.Group,
+          }
+        }))
+      }
+      console.log({data})
+      return Response.json({data})
+    }
+    catch(e){
+      return Response.json({error:`I am the error; ${e}`})
+    }
+  }
   //console.log("querys",sort_name,doc_name,market_name,group_name,meeting_name)
   //console.log(url_sort_addons[sort_name])
   let filter_doc = ''

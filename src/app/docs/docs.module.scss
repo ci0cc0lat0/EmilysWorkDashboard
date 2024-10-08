@@ -19,6 +19,20 @@
   }
 }
 
+.search_bar{
+  margin: 0 10px 2rem 10px;
+  border-radius: 1rem;
+  outline: gs.$border solid 5px;
+
+  
+  input{
+    display: block;
+    width: 100%;
+    outline:none;
+    padding:1rem;
+  }
+}
+
 .sortandfilter_wrapper{
   margin: 0 10px 2rem 10px;
   border-radius: 1rem;
@@ -32,7 +46,6 @@
 .sortandfilter{
   display: flex;
   align-items: stretch;
-
   flex-direction: row;
   flex-wrap:wrap;
   gap: 1px;
