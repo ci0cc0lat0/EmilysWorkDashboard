@@ -182,7 +182,7 @@ function Render() {
   useEffect(()=>{
     const handler = setTimeout(()=>{
       set_debounce(fuzzy_search)
-    },500)
+    },10)
 
     return () => {
       clearTimeout(handler)
